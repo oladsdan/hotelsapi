@@ -27,7 +27,7 @@ export const verifyUser = (req, res, next) => {
 
 //verify Admin
 export const verifyAdmin = (req, res, next) => {
-    veriryToken(req, res, () => {
+    veriryToken(req, res, next, () => {
         if (req.user.isAdmin) {
             next();
         } else {
