@@ -24,3 +24,14 @@ export const verifyUser = (req, res, next) => {
         }
     })
 }
+
+//verify Admin
+export const verifyAdmin = (req, res, next) => {
+    veriryToken(req, res, () => {
+        if (req.user.isAdmin) {
+            next();
+        } else {
+            return next(createError(403, "You ar not authorixed!"));
+        }
+    })
+}
